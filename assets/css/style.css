@@ -7,15 +7,28 @@
     --light-green: #98D43F;
     --light-green-background: #E8EFEB;
 }
+
 @font-face {
     font-family: 'Helen Regular';
     src: url('../fonts/Helen-Bg-Regular.woff2') format('woff2'),
-         url('../fonts/Helen-Bg-Regular.woff') format('woff'),
-         url('../fonts/Helen-Bg-Regular.ttf') format('truetype');
+        url('../fonts/Helen-Bg-Regular.woff') format('woff'),
+        url('../fonts/Helen-Bg-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+
+
+@font-face {
+    font-family: 'Helen Light';
+    src: url('../fonts/Helen-Bg-Regular.woff2') format('woff2'),
+        url('../fonts/Helen-Bg-Regular.woff') format('woff'),
+        url('../fonts/Helen-Bg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .on-desktop {
     display: none;
 }
@@ -37,7 +50,7 @@ h1.ks-heading-h1 {
 }
 
 p.ks-paragraph {
-    font-family: 'Helen Regular',sans-serif;
+    font-family: 'Helen Regular', sans-serif;
     margin: 1rem 0;
     line-height: 1.3rem;
     font-size: 1.2rem;
@@ -48,9 +61,11 @@ img.ks-image {
     max-width: 100%;
     height: auto;
 }
-b.ks-bold{
+
+b.ks-bold {
     font-weight: bold;
 }
+
 .text-center {
     text-align: center;
 }
@@ -60,12 +75,11 @@ b.ks-bold{
 .ks-col {
     padding: 15px;
 }
-.ks-col-6{
-    
-}
-.ks-col-12{
-    
-}
+
+.ks-col-6 {}
+
+.ks-col-12 {}
+
 .ks-buy-button__green {
     color: #fff;
     font-size: 2.5rem;
@@ -81,6 +95,7 @@ b.ks-bold{
     padding: 0.5rem 2.5rem;
     border-radius: 1rem;
     position: relative;
+    z-index: 1;
 }
 
 h1.ks-heading-h1 .red-accent {
@@ -116,6 +131,7 @@ h1.ks-heading-h1 .red-accent {
     font-weight: 600;
     line-height: 1.7rem;
     margin-top: 1.5rem;
+    font-style: italic;
 }
 
 .hero .matcha-product-image {
@@ -133,16 +149,17 @@ h1.ks-heading-h1 .red-accent {
 .hero .hero-undertext {
     background: var(--main-green);
     display: flex;
-    padding: 5rem 0 2rem 0;
+    padding: 5rem 1rem 2rem 1rem;
     margin-top: -4rem;
+    justify-content: space-between;
 }
 
 .hero .hero-undertext p.ks-paragraph {
     position: relative;
     text-align: center;
+    font-family: 'Helen Light';
     color: #fff;
-    font-weight: 100;
-    font-size: 1rem;
+    font-size: 1.3rem;
     border-right: 2px solid #879057;
 }
 
@@ -207,7 +224,8 @@ h1.ks-heading-h1 .red-accent {
 .matcha-blend .blend-bullets-item p.ks-paragraph {
     margin: 0;
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    line-height: 1.2rem;
 }
 
 /* Matcha Results + Slick dots */
@@ -235,7 +253,7 @@ h1.ks-heading-h1 .red-accent {
     font-size: 2.3rem;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 500;
+    font-weight: 900;
     color: #fff;
     background: var(--main-green);
     width: fit-content;
@@ -292,14 +310,35 @@ h1.ks-heading-h1 .red-accent {
     cursor: pointer;
 }
 
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+.matcha-results {
+    position: relative;
+}
 
 .matcha-results .slider-handle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
+    width: 3rem;
+    height: 3rem;
     background: white;
     border-radius: 50%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -310,7 +349,9 @@ h1.ks-heading-h1 .red-accent {
     font-weight: bold;
     color: black;
     pointer-events: none;
+    animation: pulse 2.5s infinite ease-in-out;
 }
+
 
 .matcha-results .slider-handle::before {
     content: "⟷";
@@ -346,8 +387,8 @@ h1.ks-heading-h1 .red-accent {
 }
 
 .matcha-results .before-after__slider-item .before-after__text small {
-    font-family: "Roboto", serif;
-    font-size: 0.7rem;
+    font-family: "Helen Regular", serif;
+    font-size: 0.8rem;
 }
 
 .matcha-results .slider-handle {
@@ -423,7 +464,7 @@ h1.ks-heading-h1 .red-accent {
 }
 
 .matcha-results__testimonial .testimonial-container__image .testimonial-image__elements .testimonial-quote {
-    max-width: 20%;
+    max-width: 25%;
 }
 
 .matcha-results__testimonial .testimonial-container__image .testimonial-image__elements p.ks-paragraph {
@@ -453,6 +494,7 @@ h1.ks-heading-h1 .red-accent {
     color: var(--main-green);
     text-align: center;
     font-weight: 500;
+    padding-top: 10px;
 }
 
 .animated-reviews h3.ks-heading-h3 {
@@ -523,7 +565,7 @@ h1.ks-heading-h1 .red-accent {
 }
 
 .how-it-works .ingredients-slider .ingredient-images_container .ingredient-main-image {
-    max-width: 80%;
+    max-width: 75%;
 }
 
 .how-it-works .ingredients-slider .ingredient-images_container .ingredient-icons {
@@ -545,6 +587,26 @@ h1.ks-heading-h1 .red-accent {
     padding-left: 5px;
 }
 
+
+
+@keyframes pulse-ingredients {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
 .how-it-works .ingredients-slider .ingredient-text_container p.ks-paragraph.ingredient-plus {
     color: #fff;
     background: var(--main-green);
@@ -556,6 +618,8 @@ h1.ks-heading-h1 .red-accent {
     align-items: center;
     border-radius: 50%;
     padding-left: 0;
+    margin-right: 3px;
+    animation: pulse-ingredients 2.5s infinite ease-in-out;
 }
 
 .how-it-works .ingredients-slider .slick-slide {
@@ -648,7 +712,7 @@ h1.ks-heading-h1 .red-accent {
     margin-bottom: 15px;
 }
 
-.ingredient-popup-title {
+h3.ingredient-popup-title {
     font-size: 1.5rem;
     line-height: 1.5rem;
     text-transform: inherit;
@@ -659,7 +723,7 @@ h1.ks-heading-h1 .red-accent {
 
 
 p.ingredient-popup-description {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1rem;
 }
 
@@ -708,7 +772,7 @@ p.ingredient-popup-description {
 
 .matcha-preparing .matcha-preparation__steps .matcha-step {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
     justify-content: flex-start;
 }
@@ -718,7 +782,8 @@ p.ingredient-popup-description {
 }
 
 .matcha-preparing .matcha-preparation__steps .matcha-step p.ks-paragraph {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 
 /* Matcha Badges */
@@ -748,6 +813,7 @@ p.ingredient-popup-description {
 .matcha-differences p.ks-paragraph {
     color: #707070;
     margin-bottom: 5rem;
+    font-size: 1.5rem;
 }
 
 @keyframes moveBackground {
